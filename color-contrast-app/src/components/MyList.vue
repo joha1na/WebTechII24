@@ -6,16 +6,17 @@ interface Props {
     items: string[];
 }
 
-const { items } = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
     title: 'My List'
 });
+
+const uppercaseTitle = props.title.toUpperCase();
 </script>
 
 <template>
-    <h2>{{ title }}</h2>
+    <h3>{{ uppercaseTitle }}</h3>
     <ul>
-
-        {{ items }}
+        <!-- {{ items }} -->
         <li v-for="(item, idx) in items" :key="idx">{{ item }}</li>
     </ul>
 </template>
